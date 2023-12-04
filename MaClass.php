@@ -13,10 +13,11 @@ class MaClass
 
 
     static string $varStatic = 'Je suis une variable statique';
+    protected string $varProtected = 'Je suis une variable protected' . '<br>';
 
     // Private
     private string $_attributPrivate;
-    private string $_nom = 'Michel Plik';
+    private string $_nom = 'Michel Plik' . '<br>';
 
     // La méthode __construct est appelée automatiquement lorsqu'une nouvelle instance d'une classe est créée. C'est souvent utilisé pour effectuer des initialisations nécessaires à l'objet.
     public function __construct()
@@ -62,24 +63,19 @@ class MaClass
     {
         return 'Methode statique qui affiche une variable statique ' . self::$varStatic;
     }
+
+    public function getNom()
+    {
+        return $this->_nom;
+    }
+
+    public function setNom($nom)
+    {
+        $this->_nom = $nom;
+    }
 }
 
 
-$objClass = new MaClass();
-// echo $obj->couleur . '<br>';
-// echo $obj->age . '<br>';
-// On ne peut pas acceder à un attribut privé dans une class.
-// echo $obj->nom . '<br>';
-// $objClass->prenom = 'Bill';
-// echo $objClass->displayMethode('');
+// $objClass = new MaClass();
 
-
-// 1er methode pour calculer l'air d'un cercle.
-$objClass->rayon = 3.5;
-echo $objClass->calculCercleAir() . 'cm2' .  "<br>";
-
-
-// 2e methode pour calculer l'air d'un cercle.
-echo $objClass->calculCercleAir2(5) . 'cm2' .  "<br>";
-
-echo maClass::$varStatic;
+// echo maClass::$varStatic;
